@@ -1,26 +1,446 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * ============================================================================
+ * SOUTH DENVER SEWERSCOPES — design system
+ * ============================================================================
+ * Ported from dns-component-library/design-system/globals.css.
+ *
+ * REBRAND CHECKLIST (the only two per-client edits):
+ *   1. Fonts      → src/fonts/index.ts  (Archivo headings / Inter body)
+ *   2. Palette    → the 24 hexes in the BRAND PALETTE fence below
+ * Everything under STRUCTURAL is shared and should not be touched to rebrand.
+ *
+ * Binding rules live in docs/design-system.md. The short version: rem-based
+ * sizing only, spacing from the 4px scale, sizes from the type tokens, a solid
+ * 0/5 token instead of opacity over an assumed background, hover + active +
+ * focus-visible on everything clickable, Capital Case headings and button
+ * labels, and no em or en dashes in user-facing copy.
+ */
+
+@theme {
+  /* Font families — fed by CSS vars from src/fonts/index.ts */
+  --font-body:
+    var(--font-body-face), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: var(--font-heading-face), ui-sans-serif, system-ui, sans-serif;
+
+  /*
+   * ==========================================================================
+   * BRAND PALETTE — EDIT THESE 24 HEXES TO REBRAND
+   * ==========================================================================
+   * Convention: 0 = lightest -> 5 = darkest. Need a lighter or darker shade?
+   * Use the SOLID 0/5 token, never fake one with opacity over an assumed
+   * background (that only holds where you control the bg, and breaks over
+   * gradients and tints). Reserve transparency for genuine glass/overlay.
+   *
+   * Distribution:
+   *   n* + g*  — foundation backgrounds and text          60-70% of a layout
+   *   p*       — navy: nav, footer, dark bands, headings  20-30%
+   *   s*       — green: CTAs, icons, highlight words      10-15%
+   *
+   * Brand anchors from the logo: navy #092745 (p4) and green #457E26 (s3).
+   */
+
+  /* Neutrals — clean cool whites and greys. n1 is the page background. */
+  --color-n0: #ffffff;
+  --color-n1: #ffffff;
+  --color-n2: #f5f7f9;
+  --color-n3: #e9edf1;
+  --color-n4: #d8dee5;
+  --color-n5: #b9c3cd;
+
+  /* Primary — brand navy (p4 is the logo navy) */
+  --color-p0: #e8eef5;
+  --color-p1: #c3d3e3;
+  --color-p2: #7e9ab8;
+  --color-p3: #1d4a76;
+  --color-p4: #092745;
+  --color-p5: #051a2e;
+
+  /* Greys — neutral text and border scale */
+  --color-g0: #efefef;
+  --color-g1: #d4d4d4;
+  --color-g2: #a3a3a3;
+  --color-g3: #565656;
+  --color-g4: #2e2e2e;
+  --color-g5: #000000;
+
+  /* Secondary / accent — brand green (s3 is the logo green, and the
+   * protected CTA fill for this brand: see Button.tsx) */
+  --color-s0: #eff6e9;
+  --color-s1: #d7e8c6;
+  --color-s2: #a6c888;
+  --color-s3: #457e26;
+  --color-s4: #35621d;
+  --color-s5: #244313;
+
+  /*
+   * ==========================================================================
+   * STRUCTURAL — shared across every DigitalNova build. Do not edit to rebrand.
+   * ==========================================================================
+   */
+
+  /*
+   * Type scale — golden ratio quarter steps (phi^(n/4)), rem-based for
+   * accessibility: the root font size is never overridden, so user browser
+   * font-size preferences scale type, spacing, and widths together.
+   * Responsiveness comes from --text-scale (1 / 1.0625 / 1.125, set in the
+   * base layer), which scales TYPE ONLY. Resulting px at normal settings
+   * (1rem = 16px):
+   *
+   *   px @breakpoint:  mobile   tablet   desktop
+   *   sm               14       ~15      ~16
+   *   base             16       17       18
+   *   lg (h6)          23       ~24      ~26
+   *   xl (h5)          26       ~28      ~29
+   *   2xl (h4)         29       ~31      ~33
+   *   3xl (h3)         33       ~35      ~37
+   *   4xl (h2)         37       ~39      ~42
+   *   5xl (h1)         42       ~45      ~47
+   */
+  /* Line heights: body 1.6 · large text 1.4 · headings 1.2 */
+  --text-xs: calc(0.75rem * var(--text-scale));
+  --text-xs--line-height: 1.6;
+  --text-sm: calc(0.875rem * var(--text-scale));
+  --text-sm--line-height: 1.6;
+  --text-base: calc(1rem * var(--text-scale));
+  --text-base--line-height: 1.6;
+  --text-lg: calc(1.2rem * var(--text-scale));
+  --text-lg--line-height: 1.4;
+  --text-xl: calc(1.4rem * var(--text-scale));
+  --text-xl--line-height: 1.4;
+  --text-2xl: calc(1.8rem * var(--text-scale));
+  --text-2xl--line-height: 1.4;
+  --text-3xl: calc(2rem * var(--text-scale));
+  --text-3xl--line-height: 1.4;
+  --text-4xl: calc(2.25rem * var(--text-scale));
+  --text-4xl--line-height: 1.4;
+  --text-5xl: calc(2.5rem * var(--text-scale));
+  --text-5xl--line-height: 1.4;
+
+  /* Loose letter-spacing — the Button Text type and nav links */
+  --tracking-loose: 0.05em;
+
+  /*
+   * Width constraints -> max-w-section / max-w-section-wide / max-w-text.
+   * Sections always get a max width; body text gets its own 720px cap.
+   * Rem-based (scale with user font-size preference); px at normal rems.
+   */
+  --container-section: 75rem; /* 1200px — standard section content */
+  --container-section-wide: 87.5rem; /* 1400px — footer, page headers, bands */
+  --container-section-x-wide: 112.5rem; /* 1800px — the navbar rail */
+  --container-text: 45rem; /* 720px — body text max (max-w-text) */
+
+  /*
+   * Theme shadows — the only three elevation steps. Rem-based; px at normal
+   * rems:
+   *   shadow-theme-sm 2px 2px 4px @ 25%  — buttons (navbar CTA stays flat)
+   *   shadow-theme    4px 4px 8px @ 25%  — cards, images, nav bar
+   *   shadow-theme-xl 8px 8px 16px @ 25% — hero + alternating sections
+   */
+  --shadow-theme-sm: 0.125rem 0.125rem 0.25rem rgb(0 0 0 / 0.25);
+  --shadow-theme: 0.25rem 0.25rem 0.5rem rgb(0 0 0 / 0.25);
+  --shadow-theme-xl: 0.5rem 0.5rem 1rem rgb(0 0 0 / 0.25);
+  /* Recessed band — inset top+bottom only (negative spread keeps it off the
+   * left/right edges). Not an elevation step: it makes a section read as set
+   * BENEATH its neighbors. */
+  --shadow-inset-band:
+    inset 0 0.5rem 0.375rem -0.25rem rgb(0 0 0 / 0.25),
+    inset 0 -0.5rem 0.375rem -0.25rem rgb(0 0 0 / 0.25);
+
+  /* Modal enter (fade + rise). Enter-only — the Modal unmounts on close. */
+  --animate-modal-in: modal-in 0.4s ease-out both;
+  --animate-backdrop-in: backdrop-in 0.4s ease both;
+
+  /* Plain fade and scroll-triggered reveals */
+  --animate-fade-in: fade-in 0.65s ease both;
+  --animate-fade-in-up: fade-in-up 0.95s ease-out both;
+
+  /* Hero load — the content column slides in from the left. One-shot
+   * (`both` holds the end state). */
+  --animate-hero-in-left: hero-in-left 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/*
+ * "Button Text" type: 19px at normal rems, medium weight, loose tracking.
+ * Fixed size (doesn't scale with --text-scale) — buttons and nav links stay
+ * constant across breakpoints.
+ */
+@utility button-text {
+  font-size: 1.1875rem;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: var(--tracking-loose);
 }
 
-@media (prefers-color-scheme: dark) {
+/*
+ * Functional heading type — Inter, not the display face, for legibility in
+ * compact, app-like contexts: form section titles, dense UI. Display headings
+ * (page/section/marketing titles) keep Archivo via the h1-h6 base default.
+ * Pair with a size token + text color.
+ */
+@utility heading-ui {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/*
+ * ===========================================
+ * BASE STYLES
+ * ===========================================
+ */
+@layer base {
+  /*
+   * Responsive type factor. We scale a factor, not the root font size, so 1rem
+   * stays the user's browser preference (accessibility) and spacing/widths stay
+   * on the rem scale untouched. Base text: 16px mobile · 17px tablet · 18px
+   * desktop at normal settings.
+   */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --text-scale: 1;
+  }
+  @media (min-width: 768px) {
+    :root {
+      --text-scale: 1.0625; /* 17px base at normal rems */
+    }
+  }
+  @media (min-width: 1024px) {
+    :root {
+      --text-scale: 1.125; /* 18px base at normal rems */
+    }
+  }
+
+  body {
+    background-color: var(--color-n1);
+    color: var(--color-g3);
+    font-family: var(--font-body);
+  }
+
+  /* Interactive surfaces always show the pointer cursor (Tailwind preflight
+   * leaves <button> on the default arrow). Disabled controls opt out here and
+   * may set their own (e.g. Button's disabled:cursor-not-allowed). */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  /* Heading defaults — golden-ratio quarter-step scale (see @theme table).
+   * Headings are brand navy on this site, not grey: navy is the logo color and
+   * carrying it into every heading is what makes the page read as one brand. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--color-p4);
+  }
+
+  /*
+   * Weights. The library default (h1/h2 regular) is tuned for a serif display
+   * face; Archivo is a grotesque and a trades brand wants weight, so the
+   * display levels run bold and the large sizes take negative tracking to stop
+   * them looking airy.
+   */
+  h1 {
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+  }
+
+  h5 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+
+  h6 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
+
+  p,
+  li {
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  /* Section separator */
+  hr {
+    border: none;
+    height: 1px;
+    margin: 0;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-g2),
+      transparent
+    );
+    opacity: 0.4;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-in-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-2.5rem, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@layer base {
+  /*
+   * Self-contained SVG grain (no image request) for subtle texture on flat
+   * color fills. Pair with a low opacity utility on the overlay element; see
+   * GrainOverlay. The library version points at /textures/cardboard.png; this
+   * build carries no texture assets, so the noise is generated inline.
+   */
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /*
+   * Standardized section spacing:
+   *   mobile 64px / 24px · tablet 80px / 64px · desktop 120px / 80px
+   */
+  .section-pad {
+    padding: 4rem 1.5rem; /* 64px 24px at normal rems — mobile */
+  }
+  @media (min-width: 768px) {
+    .section-pad {
+      padding: 5rem 4rem; /* 80px 64px — tablet */
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-pad {
+      padding: 7.5rem 5rem; /* 120px 80px — desktop */
+    }
+  }
+
+  /*
+   * Tighter vertical padding for short transitional bands that would float in
+   * too much air at full section-pad. Same horizontal progression; one step
+   * down on the y.
+   */
+  .section-pad-sm {
+    padding: 3rem 1.5rem; /* 48px 24px — mobile */
+  }
+  @media (min-width: 768px) {
+    .section-pad-sm {
+      padding: 4rem 4rem; /* 64px 64px — tablet */
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-pad-sm {
+      padding: 5rem 5rem; /* 80px 80px — desktop */
+    }
+  }
+
+  /*
+   * Roomier vertical padding for flat (non-elevated) content sections — they
+   * lack a raised band's built-in separation, so they get taller breathing
+   * room. Same horizontal progression; one step up on the y.
+   */
+  .section-pad-xl {
+    padding: 5rem 1.5rem; /* 80px 24px — mobile */
+  }
+  @media (min-width: 768px) {
+    .section-pad-xl {
+      padding: 7.5rem 4rem; /* 120px 64px — tablet */
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-pad-xl {
+      padding: 10rem 5rem; /* 160px 80px — desktop */
+    }
+  }
+}
+
+/* Without JavaScript the FadeIn observer never fires, so its children would sit
+ * at opacity 0 forever. Pin them visible instead: the content is already in the
+ * server HTML, and a page that renders without its animations beats a page that
+ * renders as empty blocks. */
+@media (scripting: none) {
+  .FadeIn {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Accessibility: honor reduced-motion. Collapse animations to their end state
+ * (duration ~0 keeps `both`-fill animations on their final frame) and kill
+ * ambient/looping motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
