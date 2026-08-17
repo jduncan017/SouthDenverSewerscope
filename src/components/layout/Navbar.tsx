@@ -44,20 +44,16 @@ export function Navbar() {
 
   return (
     <header className="SiteHeader sticky top-0 z-50">
-      {/* The offer is the strongest thing we&apos;ve to say, so it stays visible
-          on phones too; only the supporting clauses drop at narrow widths. */}
-      <div className="AnnouncementBar bg-p4 text-n2 px-4 py-2 sm:px-6">
+      {/* Hidden on phones. Between this, the navbar CTA, the hero buttons and
+          the floating bar there were five calls to action stacked above the
+          fold on a 390px screen, and this was the least load bearing. */}
+      <div className="AnnouncementBar bg-p4 text-n2 hidden px-4 py-2 sm:block sm:px-6">
         <div className="AnnouncementBarInner max-w-section-x-wide mx-auto flex items-center justify-between gap-4 text-sm">
           <p className="AnnouncementOffer">
             <span className="text-s2 font-semibold">
               Sewer Scopes ${site.pricing.scopePromo}
             </span>{" "}
-            <span className="hidden sm:inline">
-              this month, normally ${site.pricing.scopeStandard}.
-            </span>
-            <span className="sm:hidden">
-              this month, was ${site.pricing.scopeStandard}
-            </span>
+            this month, normally ${site.pricing.scopeStandard}.
           </p>
           <p className="AnnouncementHours hidden lg:block">
             Evenings and All Day Saturday

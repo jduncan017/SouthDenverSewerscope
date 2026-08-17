@@ -36,10 +36,34 @@ export function Hero() {
         scrim="leftHeavy"
         desktopPhotoOnly
       />
-      <div className="HeroInner section-pad max-w-section-wide relative z-10 mx-auto">
+      {/* Tighter top padding on phones so the photo sits the same 24px from
+          the top of the band as it does from the sides. */}
+      <div className="HeroInner section-pad max-w-section-wide relative z-10 mx-auto pt-6 md:pt-20 lg:pt-30">
         <div className="HeroGrid grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div className="HeroCopy animate-hero-in-left flex flex-col gap-6">
-            {/* The eyebrow carries the towns. It&apos;s the first text in the
+            {/*
+              The hero photo, for stacked widths only. Above lg the backdrop
+              shows it properly in the light half of the gradient; below lg it
+              gets cropped to nothing, so it becomes a real 16:9 image here.
+
+              It leads the stacked layout: with the announcement bar gone from
+              phones the band opened on a wall of navy, and the photo is what
+              makes it read as a local business rather than a lead form.
+            */}
+            {images.heroBackground.src && (
+              <div className="HeroPhoto shadow-theme border-p3 relative aspect-video w-full overflow-hidden rounded-2xl border lg:hidden">
+                <Image
+                  src={images.heroBackground.src}
+                  alt={images.heroBackground.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 1px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            {/* The eyebrow carries the towns. It is the first text in the
                 document after the nav, it is real content rather than
                 decoration, and it answers "do they come to me" before the
                 headline has to. */}
@@ -65,29 +89,6 @@ export function Hero() {
               <span className="text-s2">Sewer Scope</span> Inspections in South
               Denver
             </h1>
-
-            {/*
-              The hero photo, for stacked widths only. Above lg the backdrop
-              shows it properly in the light half of the gradient; below lg it
-              gets cropped to nothing, so it becomes a real 16:9 image here.
-
-              Placed after the H1 rather than before it on purpose. Someone
-              arriving from an ad for "sewer scope Denver" needs the headline
-              to confirm they are in the right place before anything else; a
-              photo above it delays the one thing that prevents a bounce.
-            */}
-            {images.heroBackground.src && (
-              <div className="HeroPhoto shadow-theme border-p3 relative aspect-video w-full overflow-hidden rounded-2xl border lg:hidden">
-                <Image
-                  src={images.heroBackground.src}
-                  alt={images.heroBackground.alt}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 1px, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
 
             <p className="HeroSubtitle text-n3 max-w-text text-base md:text-lg">
               See exactly what&apos;s in your sewer line. We scope the whole
