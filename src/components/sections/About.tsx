@@ -60,8 +60,8 @@ export function About() {
             </footer>
           </blockquote>
 
-          <div className="AboutActions">
-            <Button as="a" href={BOOK_ANCHOR}>
+          <div className="AboutActions w-full max-w-sm">
+            <Button as="a" href={BOOK_ANCHOR} className="w-full sm:w-auto">
               Book With Frank
             </Button>
           </div>

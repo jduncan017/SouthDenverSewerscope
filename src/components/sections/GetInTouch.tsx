@@ -39,7 +39,11 @@ export function GetInTouch() {
         text gets you on the schedule just as fast, usually for an evening this
         week or the coming Saturday.
       </p>
-      <Button as="a" href={site.contact.phoneHref}>
+      <Button
+        as="a"
+        href={site.contact.phoneHref}
+        className="w-full max-w-sm sm:w-auto"
+      >
         <Phone className="size-5" aria-hidden="true" />
         {site.contact.phoneDisplay}
       </Button>
@@ -52,7 +56,6 @@ export function GetInTouch() {
         eyebrow="Get In Touch"
         title="Book Your Sewer Inspection"
         description={`Pick a time yourself, send us the details, or just call. Whichever you choose, you're dealing with ${site.owner.name}, the person who'll actually be doing the work.`}
-        align="center"
       />
 
       <div className="GetInTouchGrid mt-16 grid items-start gap-8 lg:grid-cols-[1.55fr_1fr] lg:gap-12">

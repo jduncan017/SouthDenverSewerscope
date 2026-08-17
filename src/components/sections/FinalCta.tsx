@@ -26,15 +26,19 @@ export function FinalCta() {
             Find Out What&apos;s Actually in Your Sewer Line
           </h2>
           <p className="FinalCtaBody text-n3 max-w-text text-lg">
-            See what&apos;s actually going on in your line, and get an honest
-            answer about whether you need to do anything about it. Most of the
-            time, you don&apos;t.
+            Get an honest answer about what&apos;s in your line. Most of the
+            time, there&apos;s nothing to worry about.
           </p>
-          <div className="FinalCtaActions mt-2 flex flex-wrap justify-center gap-4">
-            <Button as="a" href={BOOK_ANCHOR}>
+          <div className="FinalCtaActions mt-2 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 sm:justify-center">
+            <Button as="a" href={BOOK_ANCHOR} className="w-full sm:w-auto">
               Book Your Inspection
             </Button>
-            <Button as="a" href={site.contact.phoneHref} variant="onDark">
+            <Button
+              as="a"
+              href={site.contact.phoneHref}
+              variant="onDark"
+              className="w-full sm:w-auto"
+            >
               <Phone className="size-5" aria-hidden="true" />
               {site.contact.phoneDisplay}
             </Button>

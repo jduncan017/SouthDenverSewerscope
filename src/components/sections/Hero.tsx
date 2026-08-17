@@ -55,7 +55,7 @@ export function Hero() {
             {/* The one place the type scale is overridden: a landing page hero is a
                 display moment, and text-5xl tops out at ~45px which reads small
                 against a full bleed photograph. */}
-            <h1 className="HeroTitle text-n0 max-w-[16ch] text-balance text-5xl leading-[1.05] md:text-[3.25rem] lg:text-[4rem]">
+            <h1 className="HeroTitle text-n0 max-w-[16ch] text-balance text-[2.75rem] leading-[1.05] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem]">
               <span className="text-s2">Sewer Scope</span> Inspections in South
               Denver
             </h1>
@@ -67,17 +67,24 @@ export function Hero() {
               means.
             </p>
 
-            <div className="HeroCtas mt-2 flex flex-wrap items-center gap-4">
-              <Button as="a" href={BOOK_ANCHOR}>
+            {/* Stacked and equal width on phones, inline from sm. Two pill buttons
+                of different widths stacked under each other read as a mistake. */}
+            <div className="HeroCtas mt-2 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
+              <Button as="a" href={BOOK_ANCHOR} className="w-full sm:w-auto">
                 Book Your Inspection
               </Button>
-              <Button as="a" href={site.contact.phoneHref} variant="onDark">
+              <Button
+                as="a"
+                href={site.contact.phoneHref}
+                variant="onDark"
+                className="w-full sm:w-auto"
+              >
                 <Phone className="size-5" aria-hidden="true" />
                 {site.contact.phoneDisplay}
               </Button>
             </div>
 
-            <p className="HeroReassurance text-n3 text-sm">
+            <p className="HeroReassurance text-n3 max-w-text text-sm">
               Evening and Saturday appointments, because you shouldn&apos;t have to
               take a day off work to find out what&apos;s under your yard.
             </p>

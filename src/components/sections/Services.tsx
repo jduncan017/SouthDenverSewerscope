@@ -27,7 +27,6 @@ export function Services() {
         eyebrow="What We Do"
         title="Sewer Work, Done Straight"
         description="Everything starts with the camera. We'd rather show you the inside of your line and let you decide what to do about it."
-        align="center"
       />
 
       {/* items-start, not stretch: the other-services list is naturally taller,
@@ -43,8 +42,8 @@ export function Services() {
             <p className="PrimaryServiceBlurb text-g3 text-lg">
               {primaryService.blurb}
             </p>
-            <div className="PrimaryServiceActions pt-2">
-              <Button as="a" href={BOOK_ANCHOR}>
+            <div className="PrimaryServiceActions w-full max-w-sm pt-2">
+              <Button as="a" href={BOOK_ANCHOR} className="w-full sm:w-auto">
                 Book an Inspection
                 <ArrowRight className="size-5" aria-hidden="true" />
               </Button>

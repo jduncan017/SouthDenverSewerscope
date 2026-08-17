@@ -18,11 +18,16 @@ export default function NotFound() {
           inspections, our pricing, and our service area is on the home page, or
           you can just call and ask.
         </p>
-        <div className="NotFoundActions flex flex-wrap gap-4">
-          <Button as="link" href="/">
+        <div className="NotFoundActions flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
+          <Button as="link" href="/" className="w-full sm:w-auto">
             Back to the Home Page
           </Button>
-          <Button as="a" href={site.contact.phoneHref} variant="secondary">
+          <Button
+            as="a"
+            href={site.contact.phoneHref}
+            variant="secondary"
+            className="w-full sm:w-auto"
+          >
             <Phone className="size-5" aria-hidden="true" />
             {site.contact.phoneDisplay}
           </Button>

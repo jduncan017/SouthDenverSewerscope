@@ -16,11 +16,10 @@ export function FaqSection() {
         eyebrow="Questions"
         title="Sewer Scope Questions, Answered"
         description="If yours isn't here, call and ask. We'd rather answer it now than have you find out on the day."
-        align="center"
       />
       <div className="FaqBody mx-auto mt-16 max-w-4xl">
         <FaqAccordion items={faqs} />
-        <p className="FaqFooter text-g3 mt-8 text-center">
+        <p className="FaqFooter text-g3 mt-8">
           Still deciding?{" "}
           <a
             href={site.contact.phoneHref}

@@ -20,10 +20,10 @@ export function TrustBar() {
         {trustPoints.map(({ icon: Icon, label }) => (
           <div
             key={label}
-            // Left aligned in the single column stack, where centering each
-            // row to its own width reads as ragged; centered once there are
-            // sibling columns to center against.
-            className="TrustItem flex items-center justify-start gap-3 sm:justify-center lg:px-3"
+            // Left aligned at every width. Centering each cell to its own
+            // label width made the row read as ragged rather than as a rank
+            // of four, and left matches the rest of the page.
+            className="TrustItem flex items-center justify-start gap-3 lg:px-3"
           >
             <span className="TrustItemIcon bg-n0 text-s4 shadow-theme-sm flex size-10 shrink-0 items-center justify-center rounded-full">
               <Icon className="size-5" aria-hidden="true" />

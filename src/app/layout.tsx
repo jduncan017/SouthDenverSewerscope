@@ -79,9 +79,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/*
         The bottom padding reserves room for MobileCtaBar, which is fixed to the
         viewport bottom on phones. Without it the bar would cover the last line
-        of the footer.
+        of the footer. Must track MobileCtaBar's own md:hidden breakpoint.
       */}
-      <body className="font-body flex min-h-screen flex-col pb-20 lg:pb-0">
+      <body className="font-body flex min-h-screen flex-col pb-20 md:pb-0">
         <QueryParamProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

@@ -32,7 +32,6 @@ export function Pricing() {
         eyebrow="Pricing"
         title="Sewer Scope Inspection Cost"
         description="If a company won't tell you what something costs until a technician is standing in your driveway, there's usually a reason. Here's ours, in public."
-        align="center"
       />
 
       <div className="PricingBody mx-auto mt-16 grid max-w-5xl items-start gap-6 lg:grid-cols-[1.4fr_1fr]">
