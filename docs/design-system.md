@@ -1,4 +1,4 @@
-# South Denver Sewerscopes Design System
+# South Denver Sewerscope Design System
 
 > Ported from `dns-component-library/design-system/design-system.md`. This is the
 > binding reference for design work on this site. When a rule here conflicts with

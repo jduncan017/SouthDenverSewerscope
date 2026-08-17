@@ -53,7 +53,7 @@ export const images = {
   /** The owner, in the About section. */
   ownerPortrait: {
     src: "/frank-3.webp",
-    alt: "Frank Menkel, owner of South Denver Sewerscopes",
+    alt: "Frank Menkel, owner of South Denver Sewerscope",
     brief:
       "Portrait of Frank Menkel. On site in work clothes beside the camera reel beats a studio headshot every time.",
   },

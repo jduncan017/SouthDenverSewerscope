@@ -31,7 +31,7 @@ export function About() {
           <SectionHeader
             eyebrow="Who You Are Calling"
             title={`Meet ${site.owner.name}`}
-            description={`${site.owner.yearsExperience} years running camera and clearing lines across the Denver metro. ${site.owner.name.split(" ")[0]} started ${site.name} with his brother James so he could do the work the way he always thought it should be done: show people what is actually there, explain it plainly, and let them decide.`}
+            description={`${site.owner.yearsExperience} years running camera and clearing lines across the Denver metro. ${site.owner.name.split(" ")[0]} started ${site.name} with his brother James so he could do the work the way he always thought it should be done: show people what's actually there, explain it plainly, and let them decide.`}
           />
 
           <ul className="AboutPoints flex flex-col gap-3">
@@ -42,7 +42,7 @@ export function About() {
             </BulletItem>
             <BulletItem>
               Our work comes from referrals and from realtors who send us every
-              client. That only happens if you are straight with people the
+              client. That only happens if you&apos;re straight with people the
               first time.
             </BulletItem>
           </ul>
@@ -51,8 +51,8 @@ export function About() {
             <Quote className="AboutQuoteMark text-s3 size-6" aria-hidden="true" />
             <p className="AboutQuoteText text-p4 mt-3 text-lg font-medium text-balance">
               I treat every house like it belongs to someone in my family.
-              That means showing you what is really down there and telling you
-              the truth about it, even when the truth is that you do not need
+              That means showing you what&apos;s really down there and telling you
+              the truth about it, even when the truth is that you don&apos;t need
               me.
             </p>
             <footer className="AboutQuoteAttribution text-g3 mt-4 text-sm">

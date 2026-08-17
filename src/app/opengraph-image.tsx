@@ -67,7 +67,7 @@ export default async function OpengraphImage() {
               fontWeight: 700,
             }}
           >
-            South Denver Sewerscopes
+            South Denver Sewerscope
           </div>
           <div
             style={{
@@ -91,7 +91,7 @@ export default async function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          See Exactly What Is In Your Sewer Line.
+          {`See Exactly What's In Your Sewer Line.`}
         </div>
 
         {/* Only the 800 weight is loaded, so everything here renders bold.

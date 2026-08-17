@@ -23,12 +23,12 @@ export function FinalCta() {
             box. Genuine overlay is the sanctioned use of transparency here. */}
         <div className="FinalCtaCard border-p2/40 bg-p5/70 mx-auto flex max-w-3xl flex-col items-center gap-6 rounded-2xl border p-8 text-center shadow-theme-xl backdrop-blur-md md:p-12">
           <h2 className="FinalCtaTitle text-n0 max-w-[20ch] text-balance">
-            Find Out What Is Actually in Your Sewer Line
+            Find Out What&apos;s Actually in Your Sewer Line
           </h2>
           <p className="FinalCtaBody text-n3 max-w-text text-lg">
-            See what is actually going on in your line, and get an honest
+            See what&apos;s actually going on in your line, and get an honest
             answer about whether you need to do anything about it. Most of the
-            time, you do not.
+            time, you don&apos;t.
           </p>
           <div className="FinalCtaActions mt-2 flex flex-wrap justify-center gap-4">
             <Button as="a" href={BOOK_ANCHOR}>

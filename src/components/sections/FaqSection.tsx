@@ -15,7 +15,7 @@ export function FaqSection() {
       <SectionHeader
         eyebrow="Questions"
         title="Sewer Scope Questions, Answered"
-        description="If yours is not here, call and ask. We would rather answer it now than have you find out on the day."
+        description="If yours isn't here, call and ask. We'd rather answer it now than have you find out on the day."
         align="center"
       />
       <div className="FaqBody mx-auto mt-16 max-w-4xl">

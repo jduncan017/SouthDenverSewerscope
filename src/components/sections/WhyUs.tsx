@@ -31,7 +31,7 @@ export function WhyUs() {
       <SectionHeader
         eyebrow="How We Work"
         title="What an Honest Sewer Inspection Looks Like"
-        description="An inspection is only worth what you can trust about it. Five things we do on every job, and every one of them is something you can hold us to on the day."
+        description="An inspection is only worth what you can trust about it. Here are five things we do on every job, and every one of them is something you can hold us to."
         align="center"
         onDark
       />

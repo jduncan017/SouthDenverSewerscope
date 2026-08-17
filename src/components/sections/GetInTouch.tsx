@@ -35,7 +35,7 @@ export function GetInTouch() {
         Online Booking Is Nearly Live
       </h3>
       <p className="BookingFallbackBody text-g3">
-        The calendar is being set up right now. Until it is running, one call or
+        The calendar is being set up right now. Until it&apos;s live, one call or
         text gets you on the schedule just as fast, usually for an evening this
         week or the coming Saturday.
       </p>
@@ -51,7 +51,7 @@ export function GetInTouch() {
       <SectionHeader
         eyebrow="Get In Touch"
         title="Book Your Sewer Inspection"
-        description={`Pick a time yourself, send us the details, or just call. Whichever you choose, you are dealing with ${site.owner.name}, who is the person who will be doing the work.`}
+        description={`Pick a time yourself, send us the details, or just call. Whichever you choose, you're dealing with ${site.owner.name}, the person who'll actually be doing the work.`}
         align="center"
       />
 

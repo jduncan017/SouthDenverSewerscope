@@ -29,8 +29,8 @@ export function Footer() {
           />
           <p className="FooterBlurb max-w-text text-sm">
             Straight answers about your sewer line, from a South Denver plumber
-            with {site.owner.yearsExperience} years in the trade. No fear
-            tactics, no high pressure sales, no surprises on the invoice.
+            with {site.owner.yearsExperience} years in the trade. You see the
+            footage, you keep the video, and the price doesn&apos;t move.
           </p>
           <div className="FooterContact flex flex-col gap-2 text-sm">
             <a

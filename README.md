@@ -1,4 +1,4 @@
-# South Denver Sewerscopes
+# South Denver Sewerscope
 
 Single page marketing site for a South Denver sewer camera inspection business,
 built to run as a Google Ads landing page. Next.js 16 (App Router, Turbopack) +
@@ -18,11 +18,9 @@ campaign should not go live until these are done.
 
 | What | Where | Why it blocks |
 |---|---|---|
-| **Real phone number** | `src/lib/site.ts`, `PHONE_DISPLAY` / `PHONE_E164` | Currently `(720) 555-0199`, a reserved fictional number. It appears in the navbar, hero, footer, forms, and the LocalBusiness schema. |
 | **Lead email delivery** | `.env.local`: `RESEND_API_KEY`, `LEAD_FROM_EMAIL` | Without it the form returns success but the lead is only written to the server log with a `[LEAD:UNDELIVERED]` marker. Paid leads would be recoverable but easily missed. |
 | **Cal.com link** | `.env.local`: `NEXT_PUBLIC_CAL_LINK` | The booking section falls back to a call-or-message panel until this is set. |
-| **Domain** | `src/lib/site.ts`, `url` | Feeds canonical URLs, sitemap, OG tags, and JSON-LD. |
-| **Mailbox** | `src/lib/site.ts`, `contact.email` | `info@southdenversewerscopes.com` does not exist yet. |
+| **Mailbox** | `.env.local` | `Frank@SouthDenverSewerscope.com` must actually receive mail before the form is trusted with leads. |
 | **Privacy policy review** | `src/app/privacy/page.tsx` | Written to describe what the code actually does, but it is not legal advice. |
 | **Verify the licensed and insured claim** | `src/lib/content.ts`, footer, privacy page | Stated as fact in several places. Confirm the Colorado license is current under New Day Plumbing and Drain LLC. |
 
@@ -63,7 +61,7 @@ src/
     sections/         one file per band on the page
   lib/
     site.ts           every business fact: phone, prices, hours, service area
-    content.ts        services, process, values, FAQs (reused by JSON-LD)
+    content.ts        services, values, FAQs (reused by JSON-LD)
     schema.ts         LocalBusiness / FAQPage / WebSite structured data
     nav.ts            the anchor IA
   fonts/              Archivo (headings) + Inter (body)

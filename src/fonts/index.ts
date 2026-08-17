@@ -2,7 +2,7 @@ import { Archivo, Inter } from "next/font/google";
 
 /*
  * ===========================================
- * FONTS — South Denver Sewerscopes
+ * FONTS — South Denver Sewerscope
  * ===========================================
  * Archivo: all headings (H1-H6, applied via the base layer). A tight, heavy
  *   grotesque chosen to match the logo wordmark. Unlike the library's default

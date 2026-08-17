@@ -33,7 +33,7 @@ export function Hero() {
       <div className="HeroInner section-pad max-w-section-wide relative z-10 mx-auto">
         <div className="HeroGrid grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div className="HeroCopy animate-hero-in-left flex flex-col gap-6">
-            {/* The eyebrow carries the towns. It is the first text in the
+            {/* The eyebrow carries the towns. It&apos;s the first text in the
                 document after the nav, it is real content rather than
                 decoration, and it answers "do they come to me" before the
                 headline has to. */}
@@ -78,8 +78,8 @@ export function Hero() {
             </div>
 
             <p className="HeroReassurance text-n3 text-sm">
-              Evening and Saturday appointments, because you should not have to
-              take a day off work to find out what is under your yard.
+              Evening and Saturday appointments, because you shouldn&apos;t have to
+              take a day off work to find out what&apos;s under your yard.
             </p>
           </div>
 

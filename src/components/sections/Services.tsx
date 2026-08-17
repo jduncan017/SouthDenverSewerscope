@@ -26,13 +26,16 @@ export function Services() {
       <SectionHeader
         eyebrow="What We Do"
         title="Sewer Work, Done Straight"
-        description="Everything starts with the camera. We would rather show you the inside of your line and let you decide what to do about it."
+        description="Everything starts with the camera. We'd rather show you the inside of your line and let you decide what to do about it."
         align="center"
       />
 
-      <div className="ServicesGrid mt-16 grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-        <FadeIn className="h-full">
-          <article className="PrimaryService border-s3 bg-n0 shadow-theme-xl flex h-full flex-col gap-5 rounded-2xl border-2 p-8 md:p-10">
+      {/* items-start, not stretch: the other-services list is naturally taller,
+          and stretching the scope card to match left a wide band of empty white
+          between its blurb and its button. */}
+      <div className="ServicesGrid mt-16 grid items-start gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+        <FadeIn>
+          <article className="PrimaryService border-s3 bg-n0 shadow-theme-xl flex flex-col gap-5 rounded-2xl border-2 p-8 md:p-10">
             <IconBubble icon={Icon} size="lg" tone="solid" />
             <h3 className="PrimaryServiceTitle text-2xl text-balance">
               {primaryService.title}
@@ -40,7 +43,7 @@ export function Services() {
             <p className="PrimaryServiceBlurb text-g3 text-lg">
               {primaryService.blurb}
             </p>
-            <div className="PrimaryServiceActions mt-auto pt-2">
+            <div className="PrimaryServiceActions pt-2">
               <Button as="a" href={BOOK_ANCHOR}>
                 Book an Inspection
                 <ArrowRight className="size-5" aria-hidden="true" />
@@ -49,8 +52,8 @@ export function Services() {
           </article>
         </FadeIn>
 
-        <FadeIn delay={120} className="h-full">
-          <div className="OtherServices border-n4 bg-n2 flex h-full flex-col gap-5 rounded-2xl border p-8 md:p-10">
+        <FadeIn delay={120}>
+          <div className="OtherServices border-n4 bg-n2 flex flex-col gap-5 rounded-2xl border p-8 md:p-10">
             <h3 className="OtherServicesTitle text-xl">
               Other Services We Offer
             </h3>

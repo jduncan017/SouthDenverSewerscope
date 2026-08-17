@@ -44,7 +44,7 @@ export function Navbar() {
 
   return (
     <header className="SiteHeader sticky top-0 z-50">
-      {/* The offer is the strongest thing we have to say, so it stays visible
+      {/* The offer is the strongest thing we&apos;ve to say, so it stays visible
           on phones too; only the supporting clauses drop at narrow widths. */}
       <div className="AnnouncementBar bg-p4 text-n2 px-4 py-2 sm:px-6">
         <div className="AnnouncementBarInner max-w-section-x-wide mx-auto flex items-center justify-between gap-4 text-sm">

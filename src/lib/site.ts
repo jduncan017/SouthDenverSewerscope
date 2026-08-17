@@ -10,18 +10,15 @@
  * Facts sourced from the discovery call (docs/discoverycall.md, 2026-08-10).
  */
 
-// TODO(launch): swap for the real Google Voice 303/720 number once ported.
-// 555-01xx is the reserved fictional range, so this can never dial a stranger.
-const PHONE_DISPLAY = "(720) 555-0199";
-const PHONE_E164 = "+17205550199";
+const PHONE_DISPLAY = "(720) 772-8674";
+const PHONE_E164 = "+17207728674";
 
 export const site = {
-  name: "South Denver Sewerscopes",
+  name: "South Denver Sewerscope",
   shortName: "SDS",
   legalName: "New Day Plumbing and Drain LLC",
   tagline: "Friendly Service at a Fair Price",
-  // TODO(launch): confirm the final domain before the first ad campaign.
-  url: "https://southdenversewerscopes.com",
+  url: "https://southdenversewerscope.com",
   owner: {
     // Spelled Menkel. The discovery call transcript renders it "Manko"; that is
     // an auto-transcription error, and the transcript is left as recorded.
@@ -34,13 +31,12 @@ export const site = {
     phoneDisplay: PHONE_DISPLAY,
     phoneHref: `tel:${PHONE_E164}`,
     smsHref: `sms:${PHONE_E164}`,
-    // TODO(launch): create this mailbox on the new domain ($6/mo Google Workspace).
-    email: "info@southdenversewerscopes.com",
+    email: "Frank@SouthDenverSewerscope.com",
   },
 
   /*
    * Cal.com booking. Set NEXT_PUBLIC_CAL_LINK to the real "user/event" slug
-   * (e.g. "south-denver-sewerscopes/sewer-scope") once the account exists; the
+   * (e.g. "south-denver-sewerscope/sewer-scope") once the account exists; the
    * booking section falls back to a call-and-form panel until then, so the page
    * is never broken by a missing integration.
    */

@@ -14,7 +14,7 @@ export default function NotFound() {
           That Page Went Down the Drain
         </h1>
         <p className="NotFoundBody text-g3">
-          The link you followed does not exist. Everything about our sewer
+          The link you followed doesn&apos;t exist. Everything about our sewer
           inspections, our pricing, and our service area is on the home page, or
           you can just call and ask.
         </p>

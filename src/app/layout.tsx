@@ -54,9 +54,15 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  /*
+   * The filled brand mark. Note that src/app/favicon.ico was deleted along with
+   * this change: Next's file convention beats the metadata config, so the
+   * create-next-app default was silently winning over anything set here.
+   */
   icons: {
-    icon: "/Logos/SVG/Icon.svg",
-    apple: "/Logos/PNG/Icon.png",
+    icon: "/Logos/PNG/Icon-Filled.png",
+    shortcut: "/Logos/PNG/Icon-Filled.png",
+    apple: "/Logos/PNG/Icon-Filled.png",
   },
 };
 

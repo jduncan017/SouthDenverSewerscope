@@ -31,7 +31,7 @@ export function Pricing() {
       <SectionHeader
         eyebrow="Pricing"
         title="Sewer Scope Inspection Cost"
-        description="If a company will not tell you what something costs until a technician is standing in your driveway, there is usually a reason. Here is ours, in public."
+        description="If a company won't tell you what something costs until a technician is standing in your driveway, there's usually a reason. Here's ours, in public."
         align="center"
       />
 
@@ -91,7 +91,7 @@ export function Pricing() {
             <h3 className="PricingOtherName text-xl">Everything Else</h3>
             <p className="PricingOtherBody text-g3">
               Drain cleaning, locating, and repair work all depend on what the
-              line is actually doing, so we quote them once we have looked
+              line is actually doing, so we quote them once we&apos;ve looked
               rather than guessing at a number now.
             </p>
             <ul className="PricingOtherList flex flex-col gap-2">

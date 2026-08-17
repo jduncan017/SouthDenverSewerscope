@@ -152,7 +152,7 @@ export function ContactForm() {
           label="City or Neighborhood"
           autoComplete="address-level2"
           placeholder="Littleton"
-          helperText="So we can confirm there is no destination charge."
+          helperText="So we can confirm there's no destination charge."
           value={form.city}
           onChange={(e) => update("city", e.target.value)}
         />
@@ -172,7 +172,7 @@ export function ContactForm() {
         name="message"
         label="Anything We Should Know?"
         rows={4}
-        placeholder="Closing date, what the drain is doing, anything you have already been told. Whatever is useful."
+        placeholder="Closing date, what the drain is doing, anything you've already been told. Whatever is useful."
         value={form.message}
         onChange={(e) => update("message", e.target.value)}
       />
@@ -191,14 +191,14 @@ export function ContactForm() {
 
       {status === "failed" && (
         <p role="alert" className="ContactFormError text-base text-red-600">
-          That did not go through. Please call or text{" "}
+          That didn&apos;t go through. Please call or text{" "}
           <a
             href={site.contact.phoneHref}
             className="font-semibold underline underline-offset-4"
           >
             {site.contact.phoneDisplay}
           </a>{" "}
-          and we will sort it out right away.
+          and we&apos;ll sort it out right away.
         </p>
       )}
 
