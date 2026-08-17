@@ -45,10 +45,19 @@ export function ImageBackdrop({
   image,
   priority = false,
   scrim = "strong",
+  desktopPhotoOnly = false,
 }: {
   image: SiteImage;
   /** Set on the hero, whose photo is the page's LCP element. */
   priority?: boolean;
+  /*
+   * Skip the photo below lg. A wide landscape shot inside a tall stacked
+   * column gets cropped by object-cover to a meaningless sliver, and under the
+   * scrim it reads as no photo at all. Sections that would rather render their
+   * own image at those widths set this; the scrim and the band's own gradient
+   * still carry the treatment, so nothing looks broken.
+   */
+  desktopPhotoOnly?: boolean;
   /** See the note above before reaching for `medium`. */
   scrim?: keyof typeof SCRIM;
 }) {
@@ -60,8 +69,13 @@ export function ImageBackdrop({
           alt={image.alt}
           fill
           priority={priority}
-          sizes="100vw"
-          className="ImageBackdropPhoto object-cover"
+          // The 1px branch is deliberate: it makes the browser pick the
+          // smallest srcset entry at widths where the photo is hidden, rather
+          // than downloading a full size image it will never paint.
+          sizes={
+            desktopPhotoOnly ? "(min-width: 1024px) 100vw, 1px" : "100vw"
+          }
+          className={`ImageBackdropPhoto object-cover ${desktopPhotoOnly ? "hidden lg:block" : ""}`}
         />
       )}
       <div

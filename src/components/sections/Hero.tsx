@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Check, Phone } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Badge } from "@/components/Badge";
@@ -29,7 +30,12 @@ export function Hero() {
   return (
     <section className="Hero from-p4 to-p5 shadow-theme-xl relative isolate overflow-hidden bg-linear-to-br">
       {/* priority: with a photo set, this is the page's LCP element. */}
-      <ImageBackdrop image={images.heroBackground} priority scrim="leftHeavy" />
+      <ImageBackdrop
+        image={images.heroBackground}
+        priority
+        scrim="leftHeavy"
+        desktopPhotoOnly
+      />
       <div className="HeroInner section-pad max-w-section-wide relative z-10 mx-auto">
         <div className="HeroGrid grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div className="HeroCopy animate-hero-in-left flex flex-col gap-6">
@@ -59,6 +65,29 @@ export function Hero() {
               <span className="text-s2">Sewer Scope</span> Inspections in South
               Denver
             </h1>
+
+            {/*
+              The hero photo, for stacked widths only. Above lg the backdrop
+              shows it properly in the light half of the gradient; below lg it
+              gets cropped to nothing, so it becomes a real 16:9 image here.
+
+              Placed after the H1 rather than before it on purpose. Someone
+              arriving from an ad for "sewer scope Denver" needs the headline
+              to confirm they are in the right place before anything else; a
+              photo above it delays the one thing that prevents a bounce.
+            */}
+            {images.heroBackground.src && (
+              <div className="HeroPhoto shadow-theme border-p3 relative aspect-video w-full overflow-hidden rounded-2xl border lg:hidden">
+                <Image
+                  src={images.heroBackground.src}
+                  alt={images.heroBackground.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 1px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
 
             <p className="HeroSubtitle text-n3 max-w-text text-base md:text-lg">
               See exactly what&apos;s in your sewer line. We scope the whole
