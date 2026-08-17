@@ -34,7 +34,7 @@ export function Pricing() {
         description="If a company won't tell you what something costs until a technician is standing in your driveway, there's usually a reason. Here's ours, in public."
       />
 
-      <div className="PricingBody mx-auto mt-16 grid max-w-5xl items-start gap-6 lg:grid-cols-[1.4fr_1fr]">
+      <div className="PricingBody mx-auto mt-16 grid max-w-5xl items-start gap-6 lg:grid-cols-[1.2fr_1fr] xl:grid-cols-[1.4fr_1fr]">
         <FadeIn className="h-full">
           <article className="PricingMain border-s3 bg-n0 shadow-theme-xl relative flex h-full flex-col gap-6 rounded-2xl border-2 p-8 md:p-10">
             <Badge

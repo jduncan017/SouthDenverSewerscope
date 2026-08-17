@@ -32,7 +32,7 @@ export function Services() {
       {/* items-start, not stretch: the other-services list is naturally taller,
           and stretching the scope card to match left a wide band of empty white
           between its blurb and its button. */}
-      <div className="ServicesGrid mt-16 grid items-start gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+      <div className="ServicesGrid mt-16 grid items-start gap-8 lg:grid-cols-2 lg:gap-8 xl:grid-cols-[1.15fr_1fr] xl:gap-12">
         <FadeIn>
           <article className="PrimaryService border-s3 bg-n0 shadow-theme-xl flex flex-col gap-5 rounded-2xl border-2 p-8 md:p-10">
             <IconBubble icon={Icon} size="lg" tone="solid" />

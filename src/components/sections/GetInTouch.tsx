@@ -58,7 +58,7 @@ export function GetInTouch() {
         description={`Pick a time yourself, send us the details, or just call. Whichever you choose, you're dealing with ${site.owner.name}, the person who'll actually be doing the work.`}
       />
 
-      <div className="GetInTouchGrid mt-16 grid items-start gap-8 lg:grid-cols-[1.55fr_1fr] lg:gap-12">
+      <div className="GetInTouchGrid mt-16 grid items-start gap-8 lg:grid-cols-[1.3fr_1fr] lg:gap-8 xl:grid-cols-[1.55fr_1fr] xl:gap-12">
         <Tabs
           ariaLabel="Ways to book"
           items={[

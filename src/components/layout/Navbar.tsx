@@ -65,7 +65,10 @@ export function Navbar() {
         aria-label="Main"
         className="NavBar bg-n0 shadow-theme border-n3 border-b"
       >
-        <div className="NavBarInner max-w-section-x-wide mx-auto flex items-center justify-between gap-6 px-4 py-3 md:px-8 md:py-4">
+        {/* Gaps tighten between lg and xl. The desktop nav appears at lg but the
+            row does not actually fit at 1024, so links and the phone number
+            were wrapping onto second lines. */}
+        <div className="NavBarInner max-w-section-x-wide mx-auto flex items-center justify-between gap-4 px-4 py-3 md:px-8 md:py-4 xl:gap-6">
           <Link
             href="/"
             className="NavLogo focus-visible:ring-s4 shrink-0 rounded-sm focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
@@ -81,12 +84,12 @@ export function Navbar() {
             />
           </Link>
 
-          <div className="NavLinks hidden items-center gap-7 lg:flex">
+          <div className="NavLinks hidden items-center gap-4 lg:flex xl:gap-7">
             {navLinks.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
-                className="NavLink text-p4 hover:text-s4 focus-visible:ring-s4 text-base font-medium transition-colors duration-300 focus-visible:rounded-xs focus-visible:ring-2 focus-visible:outline-none"
+                className="NavLink text-p4 hover:text-s4 focus-visible:ring-s4 text-base font-medium whitespace-nowrap transition-colors duration-300 focus-visible:rounded-xs focus-visible:ring-2 focus-visible:outline-none"
               >
                 {label}
               </a>
@@ -96,7 +99,7 @@ export function Navbar() {
           <div className="NavActions flex items-center gap-3">
             <a
               href={site.contact.phoneHref}
-              className="NavPhone text-p4 hover:text-s4 focus-visible:ring-s4 hidden items-center gap-2 text-base font-semibold transition-colors duration-300 focus-visible:rounded-xs focus-visible:ring-2 focus-visible:outline-none sm:inline-flex"
+              className="NavPhone text-p4 hover:text-s4 focus-visible:ring-s4 hidden items-center gap-2 text-base font-semibold whitespace-nowrap transition-colors duration-300 focus-visible:rounded-xs focus-visible:ring-2 focus-visible:outline-none sm:inline-flex"
             >
               <Phone className="size-4" aria-hidden="true" />
               {site.contact.phoneDisplay}

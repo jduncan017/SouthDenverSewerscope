@@ -39,7 +39,7 @@ export function Hero() {
       {/* Tighter top padding on phones so the photo sits the same 24px from
           the top of the band as it does from the sides. */}
       <div className="HeroInner section-pad max-w-section-wide relative z-10 mx-auto pt-6 md:pt-20 lg:pt-30">
-        <div className="HeroGrid grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+        <div className="HeroGrid grid items-center gap-12 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[1.15fr_1fr] xl:gap-16">
           <div className="HeroCopy animate-hero-in-left flex flex-col gap-6">
             {/*
               The hero photo, for stacked widths only. Above lg the backdrop
@@ -97,17 +97,26 @@ export function Hero() {
               means.
             </p>
 
-            {/* Stacked and equal width on phones, inline from sm. Two pill buttons
-                of different widths stacked under each other read as a mistake. */}
-            <div className="HeroCtas mt-2 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
-              <Button as="a" href={BOOK_ANCHOR} className="w-full sm:w-auto">
+            {/*
+              Stacked and equal width whenever the row will not fit, inline when
+              it will. Three states, not two: phones are too narrow, sm to lg is
+              a full width single column with room to spare, and lg to xl is the
+              two column hero where this sits in a ~410px half and the pair
+              would otherwise overflow under the offer card.
+            */}
+            <div className="HeroCtas mt-2 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4 lg:max-w-sm lg:flex-col lg:gap-3 xl:max-w-none xl:flex-row xl:gap-4">
+              <Button
+                as="a"
+                href={BOOK_ANCHOR}
+                className="w-full sm:w-auto lg:w-full xl:w-auto"
+              >
                 Book Your Inspection
               </Button>
               <Button
                 as="a"
                 href={site.contact.phoneHref}
                 variant="onDark"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto lg:w-full xl:w-auto"
               >
                 <Phone className="size-5" aria-hidden="true" />
                 {site.contact.phoneDisplay}

@@ -58,7 +58,7 @@ export function ServiceArea() {
     <SectionWrapper id="areas" tone="neutral">
       {/* No items-start: the columns stretch so the map matches the height of
           the lists rather than sitting as a square with dead space under it. */}
-      <div className="AreaGrid grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+      <div className="AreaGrid grid gap-12 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[1.1fr_1fr] xl:gap-16">
         <div className="AreaCopy flex flex-col gap-8">
           <SectionHeader
             eyebrow="Service Area"
